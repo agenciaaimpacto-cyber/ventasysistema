@@ -1,26 +1,34 @@
-# Danny Mera — Marca Personal / Comunidad de Ventas
+# Danny Mera — Marca Personal (Ventas + Sistemas Comerciales)
 
 Contexto trasladado al migrar este sitio desde una sesión de chat de claude.ai (sin repo) a Claude Code, el 15 de septiembre de 2026.
 
-**Sitio en vivo:** [www.dannymera.com](https://www.dannymera.com) — publicado directo desde el chat, sin quedar conectado a un repositorio de GitHub. Este proyecto lo trae a un repo real para poder seguir editándolo desde Claude Code.
+**Este repo contiene DOS sitios independientes, cada uno en su propia carpeta:**
+- `ventas/` → **dannymera.com** (dominio propio oficial). Marca personal de Danny como educador/referente en ventas — técnicas, manejo de objeciones, tono/comunicación, hábitos, con una comunidad como CTA principal (formulario de lista de espera, no un grupo ya activo — ajustar la copy si Danny confirma un canal ya abierto).
+- `sistemas/` → **dannymerasistemas** (por ahora solo un subdominio gratis de Netlify, sin dominio propio — idealmente `dannymerasistemas.netlify.app`). Oferta de consultoría "Sistemas Comerciales": detección de fugas en el proceso comercial, armado de CRM/seguimiento/automatización, con formulario de diagnóstico gratuito.
 
-**Cambio de enfoque (29 de septiembre de 2026):** la página principal (`index.html`) dejó de ser sobre "Sistemas Comerciales" y ahora es sobre **Danny como referente en ventas** — técnicas, manejo de objeciones, tono/comunicación y hábitos, con una comunidad como CTA principal (formulario de lista de espera, no un grupo ya activo — ajustar la copy si Danny confirma un canal ya abierto).
+**Por qué un solo repo con dos sitios (decisión del 29 de septiembre de 2026):** Netlify necesita un sitio por dominio si el contenido es distinto (un sitio no puede mostrar cosas diferentes según el dominio que lo visite). Pero eso no obliga a tener dos repos de GitHub — un solo repo puede alimentar dos sitios de Netlify si cada uno se configura con una **"base directory" / "publish directory" distinta**:
+- Sitio Netlify de `dannymera.com` → base directory: `ventas`
+- Sitio Netlify de `dannymerasistemas` → base directory: `sistemas`
 
-**Split en dos sitios (29 de septiembre de 2026):** el contenido original de "Sistemas Comerciales" (consultoría de detección de fugas comerciales / CRM) que había quedado temporalmente en `sistemas.html` de este mismo repo se sacó por completo y ahora vive en su propio proyecto: **`~/DannyMeraSistemas`**, un repo separado. Decisión de Danny: `dannymera.com` se queda con el dominio propio oficial y es exclusivamente la marca de ventas/comunidad; "dannymerasistemas" por ahora vive **solo en un subdominio gratis de Netlify** (sin dominio propio), idealmente `dannymerasistemas.netlify.app`. El footer de este `index.html` enlaza a `https://dannymerasistemas.netlify.app` — si al crear el sitio en Netlify el nombre real queda distinto (por disponibilidad del subdominio), hay que actualizar ese link.
+Así un solo `git push` puede actualizar cualquiera de los dos sitios (Netlify solo redeploya el que tenga cambios en su carpeta), y solo hay que mantener un repo, no dos. (Se probó primero con dos repos separados — `~/DannyMeraSistemas` — pero se consolidó de vuelta a uno para simplificar, ya que "sistemas" por ahora es solo un subdominio gratis, sin necesidad real de infraestructura independiente todavía.)
 
-**Qué es esta página:** marca personal de Danny como educador/referente en ventas. Objetivo: construir comunidad y autoridad, no vender un servicio de consultoría directamente — eso quedó en el sitio separado de Sistemas Comerciales.
+Cada `index.html` es autocontenido (CSS inline en `<style>`, JS inline en `<script>` al final) — sin build step, sin dependencias externas salvo:
+- Google Fonts (Bebas Neue, DM Sans) vía CDN, en ambos.
+- Formulario que postea a **Formspree** (`https://formspree.io/f/xvznbpev`, mismo endpoint en ambos sitios, diferenciado por el campo oculto `_subject`), con notificación a `agenciaaimpacto@gmail.com`. Si un formulario deja de funcionar, revisar el dashboard de Formspree antes que el código.
 
-Es un negocio distinto al de seguros (`~/DannyMeraSeguros`), a Radar Comercial (`~/RadarComercial`) y a Sistemas Comerciales (`~/DannyMeraSistemas`), aunque las cuatro viven bajo el mismo paraguas de marca personal de Danny. Ver notas de portafolio de negocios en memoria (`user_business_portfolio.md` del asistente).
+Cross-links entre los dos sitios son URLs absolutas (no relativas), porque viven en dominios distintos:
+- `ventas/index.html` → footer enlaza a `https://dannymerasistemas.netlify.app`.
+- `sistemas/index.html` → nav-logo enlaza a `https://www.dannymera.com`.
+Si el subdominio real de Netlify para "sistemas" queda con otro nombre (por disponibilidad), hay que corregir el link del footer en `ventas/index.html`.
 
-**Estructura técnica:** un archivo `index.html` autocontenido (CSS inline en `<style>`, JS inline en `<script>` al final) — sin build step, sin dependencias externas salvo:
-- Google Fonts (Bebas Neue, DM Sans) vía CDN.
-- Formulario que postea a **Formspree** (`https://formspree.io/f/xvznbpev`, mismo endpoint que usa el sitio de Sistemas Comerciales, diferenciado por el campo oculto `_subject`), con notificación a `agenciaaimpacto@gmail.com`. Si el formulario deja de funcionar, revisar el dashboard de Formspree antes que el código.
+Es un negocio distinto al de seguros (`~/DannyMeraSeguros`) y a Radar Comercial (`~/RadarComercial`), aunque viven bajo el mismo paraguas de marca personal de Danny. Ver notas de portafolio de negocios en memoria (`user_business_portfolio.md` del asistente).
 
-**Pendiente para dejarlo operativo igual que los otros proyectos (Radar Comercial / Seguros):**
+**Pendiente para dejarlo operativo igual que los otros proyectos:**
 1. Crear repositorio en GitHub bajo `agenciaaimpacto-cyber` (no existía ninguno para este sitio al momento de la migración — se verificó por API).
 2. Confirmar acceso de escritura de la GitHub App de Claude sobre el repo nuevo (ver guía técnica en `~/DannyMeraSeguros/CLAUDE.md`, sección "Cómo se configuró Radar Comercial", punto 4) — si la instalación fue con repos específicos (no "All repositories"), hay que agregar este repo nuevo a mano en `https://github.com/settings/installations`.
-3. Confirmar en Netlify (cuenta `agenciaaimpacto`) si `www.dannymera.com` ya es un sitio existente ahí (deploy manual, sin Git) — de ser así, hay que reconectarlo a este repo nuevo para que quede con deploy automático desde `main`, igual que los otros dos sitios.
-4. Recordar el aviso de "operational credits" de la cuenta Netlify (ver `~/DannyMeraSeguros/CLAUDE.md`) — puede afectar si los deploys nuevos no se disparan aunque el push a GitHub sí llegue.
+3. En Netlify (cuenta `agenciaaimpacto`): reconectar el sitio que ya sirve `www.dannymera.com` a este repo, con base directory `ventas`.
+4. En Netlify: crear un sitio nuevo para "sistemas", conectado a este mismo repo, con base directory `sistemas`, sin dominio propio (solo el subdominio que asigne Netlify) — confirmar el nombre final y corregir el link del footer en `ventas/index.html` si no es `dannymerasistemas.netlify.app`.
+5. Recordar el aviso de "operational credits" de la cuenta Netlify (ver `~/DannyMeraSeguros/CLAUDE.md`) — puede afectar si los deploys nuevos no se disparan aunque el push a GitHub sí llegue.
 
 ## Nota de idioma
 Igual que los otros proyectos: español neutro/chileno estándar (tú), sin acentos/voseo argentino.
