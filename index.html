@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Danny Mera | El Sistema Siempre Gana</title>
+<title>Danny Mera | Comunidad de Ventas</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -49,7 +49,7 @@
   }
 
   .hero::after {
-    content: 'EL SISTEMA SIEMPRE GANA';
+    content: 'VENDER SE APRENDE';
     position: absolute;
     bottom: -20px;
     left: -10px;
@@ -80,6 +80,7 @@
     font-size: 22px;
     letter-spacing: 2px;
     color: var(--blanco);
+    text-decoration: none;
   }
 
   .nav-logo span { color: var(--rojo); }
@@ -273,7 +274,7 @@
     line-height: 1.7;
   }
 
-  /* COMO FUNCIONA */
+  /* COMO */
   .como {
     padding: 100px 40px;
     background: var(--gris);
@@ -323,67 +324,7 @@
     line-height: 1.7;
   }
 
-  /* CASOS */
-  .casos {
-    padding: 100px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .casos h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(40px, 6vw, 80px);
-    line-height: 1;
-    margin-bottom: 64px;
-  }
-
-  .casos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2px;
-  }
-
-  .caso-item {
-    background: var(--gris);
-    padding: 48px 40px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .caso-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--rojo);
-  }
-
-  .caso-resultado {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 56px;
-    color: var(--rojo);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .caso-rubro {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gris-texto);
-    margin-bottom: 24px;
-  }
-
-  .caso-descripcion {
-    font-size: 14px;
-    color: #aaa;
-    line-height: 1.7;
-  }
-
-  /* FORMULARIO */
+  /* COMUNIDAD / FORMULARIO */
   .formulario-seccion {
     padding: 100px 40px;
     background: var(--gris);
@@ -486,140 +427,6 @@
     margin-top: 16px;
   }
 
-  /* ETAPAS */
-  .etapas {
-    padding: 100px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .etapas h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(40px, 6vw, 80px);
-    line-height: 1;
-    margin-bottom: 16px;
-  }
-
-  .etapas-intro {
-    font-size: 15px;
-    color: var(--gris-texto);
-    max-width: 560px;
-    line-height: 1.7;
-    margin-bottom: 12px;
-  }
-
-  .etapas-pregunta {
-    font-size: 13px;
-    color: rgba(200,55,26,0.7);
-    letter-spacing: 1px;
-    margin-bottom: 48px;
-  }
-
-  .etapas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2px;
-    margin-bottom: 32px;
-  }
-
-  .etapa-card {
-    background: var(--gris);
-    padding: 40px 32px;
-    border-left: 3px solid transparent;
-    transition: border-color 0.2s;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .etapa-card:hover { border-left-color: var(--rojo); }
-
-  .etapa-num {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--rojo);
-  }
-
-  .etapa-dolor {
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--blanco);
-    line-height: 1.3;
-  }
-
-  .etapa-sintomas {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .etapa-sintoma {
-    font-size: 13px;
-    color: var(--gris-texto);
-    padding-left: 14px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .etapa-sintoma::before {
-    content: '·';
-    position: absolute;
-    left: 0;
-    color: var(--rojo);
-  }
-
-  .etapa-divider {
-    height: 1px;
-    background: rgba(255,255,255,0.06);
-  }
-
-  .etapa-solucion-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gris-texto);
-    margin-bottom: 10px;
-  }
-
-  .etapa-solucion-items {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .etapa-solucion-item {
-    font-size: 13px;
-    color: #aaa;
-    padding-left: 16px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .etapa-solucion-item::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--rojo);
-    font-size: 11px;
-  }
-
-  .etapas-cierre {
-    background: var(--gris);
-    border-left: 3px solid var(--rojo);
-    padding: 28px 32px;
-  }
-
-  .etapas-cierre p {
-    font-size: 14px;
-    color: var(--gris-texto);
-    line-height: 1.8;
-  }
-
-  .etapas-cierre strong { color: var(--blanco); font-weight: 500; }
-
   /* FRASE FINAL */
   .frase-final {
     padding: 120px 40px;
@@ -657,7 +464,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: gap;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   .footer-logo {
@@ -673,6 +481,20 @@
     color: var(--gris-texto);
   }
 
+  .footer-sistemas {
+    font-size: 12px;
+    color: var(--gris-texto);
+    text-align: right;
+  }
+
+  .footer-sistemas a {
+    color: var(--acento);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232,213,176,0.4);
+  }
+
+  .footer-sistemas a:hover { border-bottom-color: var(--acento); }
+
   /* SUCCESS */
   .success-msg {
     display: none;
@@ -686,233 +508,113 @@
   .success-msg.show { display: block; }
 
   @media (max-width: 600px) {
-    .hero, .problema, .casos, .formulario-seccion, .frase-final { padding: 60px 24px; }
+    .hero, .problema, .formulario-seccion, .frase-final { padding: 60px 24px; }
     .nav { padding: 16px 24px; }
     .form-grid { grid-template-columns: 1fr; }
-    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+    .footer-sistemas { text-align: center; }
   }
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="nav-logo">DANNY <span>MERA</span></div>
-  <a href="#formulario" class="nav-cta">Diagnóstico gratuito</a>
+  <a href="index.html" class="nav-logo">DANNY <span>MERA</span></a>
+  <a href="#comunidad" class="nav-cta">Únete a la comunidad</a>
 </nav>
 
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Sistemas Comerciales</div>
-    <h1>TU NEGOCIO<br>NO NECESITA<br>MÁS <span>LEADS.</span><br>NECESITA<br>NO PERDERLOS.</h1>
+    <div class="hero-tag">Comunidad de ventas</div>
+    <h1>VENDER NO ES<br>TALENTO.<br>ES <span>TÉCNICA.</span></h1>
     <p class="hero-sub">
-      <strong>Encuentro dónde está fallando el sistema que te cuesta ventas.</strong><br>
-      No es tu campaña. Es lo que pasa después del lead.
+      <strong>28 años vendiendo en terreno, en distintos rubros.</strong><br>
+      Ahora enseño lo que realmente funciona: técnicas, manejo de objeciones, tono y los hábitos que cierran ventas.
     </p>
     <div class="hero-btns">
-      <a href="#formulario" class="btn-primary">Quiero un diagnóstico</a>
-      <a href="#etapas" class="btn-secondary">¿En qué etapa estás?</a>
+      <a href="#comunidad" class="btn-primary">Únete a la comunidad</a>
+      <a href="#contenido" class="btn-secondary">Qué vas a aprender</a>
     </div>
   </div>
 </section>
 
 <div class="numeros">
   <div class="numero-item">
-    <div class="numero-valor">$32M</div>
-    <div class="numero-label">Ventas generadas en un mes</div>
+    <div class="numero-valor">28</div>
+    <div class="numero-label">Años vendiendo en terreno</div>
   </div>
   <div class="numero-item">
-    <div class="numero-valor">3X</div>
-    <div class="numero-label">Crecimiento en 90 días</div>
+    <div class="numero-valor">5+</div>
+    <div class="numero-label">Rubros distintos trabajados</div>
   </div>
   <div class="numero-item">
-    <div class="numero-valor">+20</div>
-    <div class="numero-label">Negocios con sistema activo</div>
+    <div class="numero-valor">100%</div>
+    <div class="numero-label">Experiencia real, no teoría</div>
   </div>
   <div class="numero-item">
     <div class="numero-valor">0</div>
-    <div class="numero-label">Leads perdidos con sistema</div>
+    <div class="numero-label">Excusas para no vender</div>
   </div>
 </div>
 
 <section class="problema">
-  <div class="seccion-tag">El problema real</div>
+  <div class="seccion-tag">Lo que veo todos los días</div>
   <h2>¿TE SUENA<br>FAMILIAR?</h2>
   <div class="problema-grid">
     <div class="problema-item">
       <div class="problema-num">01</div>
-      <div class="problema-titulo">Los leads llegan pero no compran</div>
-      <div class="problema-texto">Inviertes en publicidad, la gente se interesa, pero casi nadie termina comprando. Y la culpa siempre es del marketing.</div>
+      <div class="problema-titulo">No sabes qué decir cuando te ponen una objeción</div>
+      <div class="problema-texto">Te quedas en blanco, bajas el precio o dejas ir al cliente porque no sabes cómo responder sin sonar desesperado.</div>
     </div>
     <div class="problema-item">
       <div class="problema-num">02</div>
-      <div class="problema-titulo">Los contactas tarde o nunca</div>
-      <div class="problema-texto">El lead llega caliente. A la hora está tibio. Al día siguiente ya compró en otro lado. Y tu vendedor llama preguntando si sigue interesado.</div>
+      <div class="problema-titulo">Vendes bien solo cuando estás "inspirado"</div>
+      <div class="problema-texto">Un día cierras todo, al siguiente nada. No tienes un método, dependes del ánimo con el que te levantaste.</div>
     </div>
     <div class="problema-item">
       <div class="problema-num">03</div>
-      <div class="problema-titulo">No sabes dónde se pierde la venta</div>
-      <div class="problema-texto">Si no puedes identificar en qué paso exacto se cae la venta, no puedes arreglarlo. Es tener una fuga sin saber dónde está el hoyo.</div>
+      <div class="problema-titulo">Copiaste un guion que no suena a ti</div>
+      <div class="problema-texto">Lo memorizaste de un curso o un video, pero se nota que no es natural. El cliente lo detecta al segundo.</div>
     </div>
   </div>
 </section>
 
-<section class="como" id="como">
+<section class="como" id="contenido">
   <div class="como-inner">
-    <div class="seccion-tag">Cómo trabajo</div>
-    <h2>EL SISTEMA<br>EN 4 PASOS</h2>
+    <div class="seccion-tag">Qué enseño</div>
+    <h2>TÉCNICA,<br>NO SUERTE</h2>
     <div class="pasos">
       <div class="paso">
         <div class="paso-num">01</div>
-        <div class="paso-titulo">Diagnóstico</div>
-        <div class="paso-texto">Revisamos juntos qué pasa en tu negocio desde que llega el lead hasta que se cierra o se pierde. Identificamos las fugas exactas.</div>
+        <div class="paso-titulo">Técnicas de venta</div>
+        <div class="paso-texto">Cómo guiar una conversación de venta de principio a fin, sin sonar a guion ni a presión.</div>
       </div>
       <div class="paso">
         <div class="paso-num">02</div>
-        <div class="paso-titulo">Atracción</div>
-        <div class="paso-texto">Campañas en Meta y Google diseñadas para traer el cliente correcto, no solo volumen. Leads calificados que ya saben lo que quieren.</div>
+        <div class="paso-titulo">Manejo de objeciones</div>
+        <div class="paso-texto">Qué responder cuando el cliente dice "lo voy a pensar", "está caro" o "no tengo tiempo ahora".</div>
       </div>
       <div class="paso">
         <div class="paso-num">03</div>
-        <div class="paso-titulo">Sistema</div>
-        <div class="paso-texto">Proceso de seguimiento, CRM y automatización para que ningún lead se enfríe. El sistema trabaja aunque tú no estés mirando.</div>
+        <div class="paso-titulo">Tono y comunicación</div>
+        <div class="paso-texto">Cómo hablar para generar confianza en vez de desconfianza, sin cambiar quién eres.</div>
       </div>
       <div class="paso">
         <div class="paso-num">04</div>
-        <div class="paso-titulo">Conversión</div>
-        <div class="paso-texto">Trabajamos el proceso de venta con tu equipo para que sepan leer al cliente, manejar objeciones y cerrar con criterio.</div>
+        <div class="paso-titulo">Hábitos y disciplina</div>
+        <div class="paso-texto">Lo que separa al vendedor constante del que solo vende cuando le nace.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="casos">
-  <div class="seccion-tag">Casos reales</div>
-  <h2>RESULTADOS<br>QUE HABLAN</h2>
-  <div class="casos-grid">
-    <div class="caso-item">
-      <div class="caso-resultado">$32M</div>
-      <div class="caso-rubro">Servicios — 1 mes</div>
-      <div class="caso-descripcion">De $10M en febrero a $32M en abril. Ordenamos campañas, estructuramos el seguimiento y trabajamos cómo atendían cada consulta.</div>
-    </div>
-    <div class="caso-item">
-      <div class="caso-resultado">3X</div>
-      <div class="caso-rubro">Hojalatería — 90 días</div>
-      <div class="caso-descripcion">Empezamos sin nada. Analizamos sus conversaciones, trabajamos el proceso de atención y hoy tienen clientes todos los días.</div>
-    </div>
-    <div class="caso-item">
-      <div class="caso-resultado">+5</div>
-      <div class="caso-rubro">Ejecutivos de seguros</div>
-      <div class="caso-descripcion">Sistema de campañas y CRM para 5 ejecutivos con alto volumen de leads. Proceso estructurado para que ningún interesado se pierda.</div>
-    </div>
-  </div>
-</section>
-
-<section class="etapas" id="etapas">
-  <div class="seccion-tag">¿En qué etapa está tu negocio?</div>
-  <h2>CADA ETAPA REVELA<br>EL SIGUIENTE PROBLEMA</h2>
-  <p class="etapas-intro">Los negocios no se construyen resolviendo cien problemas imaginarios. Se construyen resolviendo el problema que tienes enfrente. Ubícate.</p>
-  <p class="etapas-pregunta">¿Cuál de estos describe tu situación hoy?</p>
-
-  <div class="etapas-grid">
-
-    <div class="etapa-card">
-      <span class="etapa-num">Etapa 1</span>
-      <p class="etapa-dolor">"No tengo clientes."</p>
-      <div class="etapa-sintomas">
-        <span class="etapa-sintoma">Las ventas están bajas o son inconsistentes</span>
-        <span class="etapa-sintoma">Dependes de referidos o del boca a boca</span>
-        <span class="etapa-sintoma">No llegan consultas todos los días</span>
-        <span class="etapa-sintoma">No tienes un sistema para generar oportunidades</span>
-      </div>
-      <div class="etapa-divider"></div>
-      <div>
-        <p class="etapa-solucion-label">Lo que implementamos</p>
-        <div class="etapa-solucion-items">
-          <span class="etapa-solucion-item">Campañas Meta / Google</span>
-          <span class="etapa-solucion-item">Landing page que convierte</span>
-          <span class="etapa-solucion-item">Seguimiento inicial estructurado</span>
-          <span class="etapa-solucion-item">Contenido y prospección activa</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="etapa-card">
-      <span class="etapa-num">Etapa 2</span>
-      <p class="etapa-dolor">"Llegan clientes pero se pierden."</p>
-      <div class="etapa-sintomas">
-        <span class="etapa-sintoma">Recibes mensajes pero pocas ventas concretas</span>
-        <span class="etapa-sintoma">Los leads se enfrían antes de cerrar</span>
-        <span class="etapa-sintoma">No sabes exactamente dónde se cae la venta</span>
-        <span class="etapa-sintoma">El seguimiento depende de la memoria de alguien</span>
-      </div>
-      <div class="etapa-divider"></div>
-      <div>
-        <p class="etapa-solucion-label">Lo que implementamos</p>
-        <div class="etapa-solucion-items">
-          <span class="etapa-solucion-item">Análisis de conversaciones reales</span>
-          <span class="etapa-solucion-item">Proceso de respuesta y seguimiento</span>
-          <span class="etapa-solucion-item">CRM operativo desde el día uno</span>
-          <span class="etapa-solucion-item">Automatización WhatsApp</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="etapa-card">
-      <span class="etapa-num">Etapa 3</span>
-      <p class="etapa-dolor">"El negocio crece pero hay desorden."</p>
-      <div class="etapa-sintomas">
-        <span class="etapa-sintoma">Hay muchas conversaciones y se olvidan clientes</span>
-        <span class="etapa-sintoma">No hay métricas claras de nada</span>
-        <span class="etapa-sintoma">Demasiadas tareas repetitivas que consumen tiempo</span>
-        <span class="etapa-sintoma">Todo depende del dueño para funcionar</span>
-      </div>
-      <div class="etapa-divider"></div>
-      <div>
-        <p class="etapa-solucion-label">Lo que implementamos</p>
-        <div class="etapa-solucion-items">
-          <span class="etapa-solucion-item">CRM personalizado con reportes</span>
-          <span class="etapa-solucion-item">Automatizaciones de procesos clave</span>
-          <span class="etapa-solucion-item">Análisis con IA (metodología SLCI)</span>
-          <span class="etapa-solucion-item">Procesos que funcionan sin ti</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="etapa-card">
-      <span class="etapa-num">Etapa 4</span>
-      <p class="etapa-dolor">"Tengo demasiado trabajo."</p>
-      <div class="etapa-sintomas">
-        <span class="etapa-sintoma">El negocio funciona pero tú eres el cuello de botella</span>
-        <span class="etapa-sintoma">No puedes crecer sin trabajar más horas</span>
-        <span class="etapa-sintoma">No hay equipo que pueda ejecutar sin ti</span>
-        <span class="etapa-sintoma">El crecimiento depende de tu tiempo, no del sistema</span>
-      </div>
-      <div class="etapa-divider"></div>
-      <div>
-        <p class="etapa-solucion-label">Lo que implementamos</p>
-        <div class="etapa-solucion-items">
-          <span class="etapa-solucion-item">Diseño de estructura de equipo</span>
-          <span class="etapa-solucion-item">Procesos que otros pueden ejecutar</span>
-          <span class="etapa-solucion-item">Delegación con sistema y métricas</span>
-          <span class="etapa-solucion-item">Contratación estratégica</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="etapas-cierre">
-    <p><strong>Una advertencia honesta:</strong> no puedes diseñar la etapa 4 cuando todavía estás en la etapa 1. El error más común es querer el sistema completo antes de tener el primer cliente. Trabajamos la etapa en la que estás hoy — no la que quisieras tener mañana.</p>
-  </div>
-</section>
-
-<section class="formulario-seccion" id="formulario">
+<section class="formulario-seccion" id="comunidad">
   <div class="formulario-inner">
-    <div class="seccion-tag">Diagnóstico gratuito</div>
-    <h2>REVISEMOS<br>TU SISTEMA</h2>
-    <p>Completa este formulario y me contacto contigo para una llamada de 20 minutos sin costo. Te digo exactamente dónde está la fuga en tu negocio.</p>
+    <div class="seccion-tag">Comunidad de ventas</div>
+    <h2>SÉ PARTE DE<br>LA COMUNIDAD</h2>
+    <p>Técnicas, manejo de objeciones y tips para mejorar tus ventas, pensado para tu propio negocio. Déjame tus datos y te aviso apenas esté abierta.</p>
 
-    <form id="form-diagnostico" action="https://formspree.io/f/xvznbpev" method="POST">
+    <form id="form-comunidad" action="https://formspree.io/f/xvznbpev" method="POST">
       <div class="form-grid">
         <div class="form-group">
           <label>Nombre</label>
@@ -925,52 +627,19 @@
       </div>
 
       <div class="form-group">
-        <label>¿A qué se dedica tu negocio?</label>
-        <input type="text" name="negocio" placeholder="Ej: Taller mecánico, clínica dental, empresa de seguros..." required>
+        <label>¿A qué te dedicas o qué vendes?</label>
+        <input type="text" name="negocio" placeholder="Ej: seguros, retail, servicios, e-commerce..." required>
       </div>
 
       <div class="form-group">
-        <label>¿En qué etapa está tu negocio hoy?</label>
-        <select name="etapa" required>
+        <label>¿Qué es lo que más te cuesta al vender?</label>
+        <select name="dificultad" required>
           <option value="" disabled selected>Selecciona una opción</option>
-          <option value="etapa1">Etapa 1 — No tengo suficientes clientes</option>
-          <option value="etapa2">Etapa 2 — Llegan pero se pierden</option>
-          <option value="etapa3">Etapa 3 — Hay crecimiento pero desorden</option>
-          <option value="etapa4">Etapa 4 — Tengo demasiado trabajo</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>¿Cuántos contactos o consultas recibes al mes aproximadamente?</label>
-        <select name="consultas_mes" required>
-          <option value="" disabled selected>Selecciona una opción</option>
-          <option value="menos20">Menos de 20</option>
-          <option value="20-50">Entre 20 y 50</option>
-          <option value="50-150">Entre 50 y 150</option>
-          <option value="mas150">Más de 150</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>¿Cuál es tu mayor problema hoy en ventas?</label>
-        <select name="problema" required>
-          <option value="" disabled selected>Selecciona una opción</option>
-          <option value="no-llegan">No me llegan suficientes clientes interesados</option>
-          <option value="no-convierten">Me llegan pero no convierten en ventas</option>
-          <option value="se-enfrian">Los contacto tarde y se enfrían</option>
-          <option value="no-cierran">Mis vendedores no cierran bien</option>
-          <option value="no-se-donde">No sé dónde se pierde la venta</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>¿Cuánto inviertes o estarías dispuesto a invertir mensualmente en mejorar tu sistema de ventas?</label>
-        <select name="inversion" required>
-          <option value="" disabled selected>Selecciona una opción</option>
-          <option value="menos100">Menos de $100.000</option>
-          <option value="100-300">Entre $100.000 y $300.000</option>
-          <option value="300-600">Entre $300.000 y $600.000</option>
-          <option value="mas600">Más de $600.000</option>
+          <option value="objeciones">Manejar objeciones</option>
+          <option value="cerrar">Cerrar la venta</option>
+          <option value="seguimiento">Hacer seguimiento sin ser pesado</option>
+          <option value="confianza">Generar confianza</option>
+          <option value="metodo">No tener un método claro</option>
         </select>
       </div>
 
@@ -980,30 +649,31 @@
       </div>
 
       <input type="hidden" name="_replyto" value="agenciaaimpacto@gmail.com">
-      <input type="hidden" name="_subject" value="Nuevo diagnóstico solicitado — dannymera.com">
+      <input type="hidden" name="_subject" value="Nueva persona interesada en la comunidad — dannymera.com">
 
-      <button type="submit" class="form-submit">Quiero mi diagnóstico gratuito →</button>
-      <p class="form-nota">Solo trabajo con negocios que estén listos para implementar. Si no es tu caso, igual nos hablamos.</p>
+      <button type="submit" class="form-submit">Quiero unirme →</button>
+      <p class="form-nota">Sin spam. Te escribo yo mismo por WhatsApp para avisarte.</p>
     </form>
 
     <div class="success-msg" id="success">
-      <strong>Listo. Recibí tu información.</strong><br>
-      Te contacto por WhatsApp en las próximas 24 horas para coordinar la llamada.
+      <strong>Listo. Quedaste anotado.</strong><br>
+      Te aviso por WhatsApp apenas esté abierta la comunidad.
     </div>
   </div>
 </section>
 
 <section class="frase-final">
-  <h2>EL SISTEMA<br><span>SIEMPRE</span><br>GANA.</h2>
+  <h2>VENDER SE<br><span>APRENDE.</span><br>YO TE ENSEÑO.</h2>
 </section>
 
 <footer>
   <div class="footer-logo">DANNY <span>MERA</span></div>
-  <div class="footer-text">© 2026 Danny Mera · Sistemas Comerciales</div>
+  <div class="footer-text">© 2026 Danny Mera · Comunidad de Ventas</div>
+  <div class="footer-sistemas">¿Tienes un negocio y quieres sistematizar tu área comercial?<br><a href="sistemas.html">Conoce Sistemas Comerciales →</a></div>
 </footer>
 
 <script>
-  const form = document.getElementById('form-diagnostico');
+  const form = document.getElementById('form-comunidad');
   const success = document.getElementById('success');
 
   form.addEventListener('submit', async function(e) {

@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danny Mera | El Sistema Siempre Gana</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --blanco: #f5f0e8;
+    --rojo: #c8371a;
+    --rojo-oscuro: #9e2a13;
+    --gris: #1a1a1a;
+    --gris-medio: #2a2a2a;
+    --gris-texto: #888;
+    --acento: #e8d5b0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(200,55,26,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: 'EL SISTEMA SIEMPRE GANA';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 12vw, 180px);
+    color: rgba(255,255,255,0.03);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 2px;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--blanco);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--rojo); }
+
+  .nav-cta {
+    background: var(--rojo);
+    color: var(--blanco);
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover { background: var(--rojo-oscuro); }
+
+  .hero-content {
+    max-width: 900px;
+    margin-top: 80px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(200,55,26,0.15);
+    border: 1px solid rgba(200,55,26,0.4);
+    color: var(--rojo);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 9vw, 120px);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 span { color: var(--rojo); }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: #aaa;
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-sub strong { color: var(--blanco); font-weight: 500; }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--rojo);
+    color: var(--blanco);
+    padding: 16px 36px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--rojo-oscuro);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--blanco);
+    padding: 16px 36px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.5); }
+
+  /* NUMEROS */
+  .numeros {
+    padding: 80px 40px;
+    background: var(--gris);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .numero-item {
+    background: var(--negro);
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .numero-valor {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: var(--rojo);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .numero-label {
+    font-size: 13px;
+    color: var(--gris-texto);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* PROBLEMA */
+  .problema {
+    padding: 100px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .seccion-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 24px;
+  }
+
+  .problema h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    margin-bottom: 48px;
+  }
+
+  .problema-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .problema-item {
+    background: var(--gris);
+    padding: 40px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .problema-item:hover { border-left-color: var(--rojo); }
+
+  .problema-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: rgba(200,55,26,0.3);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .problema-titulo {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--blanco);
+  }
+
+  .problema-texto {
+    font-size: 14px;
+    color: var(--gris-texto);
+    line-height: 1.7;
+  }
+
+  /* COMO FUNCIONA */
+  .como {
+    padding: 100px 40px;
+    background: var(--gris);
+  }
+
+  .como-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .como h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    margin-bottom: 64px;
+  }
+
+  .pasos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    position: relative;
+  }
+
+  .paso {
+    position: relative;
+  }
+
+  .paso-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: rgba(200,55,26,0.2);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .paso-titulo {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--blanco);
+  }
+
+  .paso-texto {
+    font-size: 14px;
+    color: var(--gris-texto);
+    line-height: 1.7;
+  }
+
+  /* CASOS */
+  .casos {
+    padding: 100px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .casos h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    margin-bottom: 64px;
+  }
+
+  .casos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+  }
+
+  .caso-item {
+    background: var(--gris);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .caso-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--rojo);
+  }
+
+  .caso-resultado {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    color: var(--rojo);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .caso-rubro {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris-texto);
+    margin-bottom: 24px;
+  }
+
+  .caso-descripcion {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.7;
+  }
+
+  /* FORMULARIO */
+  .formulario-seccion {
+    padding: 100px 40px;
+    background: var(--gris);
+  }
+
+  .formulario-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .formulario-inner h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .formulario-inner p {
+    color: var(--gris-texto);
+    font-size: 15px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris-texto);
+    margin-bottom: 10px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--negro);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--blanco);
+    padding: 16px 20px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--rojo);
+  }
+
+  .form-group select option {
+    background: var(--negro);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--rojo);
+    color: var(--blanco);
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .form-submit:hover {
+    background: var(--rojo-oscuro);
+    transform: translateY(-2px);
+  }
+
+  .form-nota {
+    font-size: 12px;
+    color: var(--gris-texto);
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  /* ETAPAS */
+  .etapas {
+    padding: 100px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .etapas h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .etapas-intro {
+    font-size: 15px;
+    color: var(--gris-texto);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .etapas-pregunta {
+    font-size: 13px;
+    color: rgba(200,55,26,0.7);
+    letter-spacing: 1px;
+    margin-bottom: 48px;
+  }
+
+  .etapas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+
+  .etapa-card {
+    background: var(--gris);
+    padding: 40px 32px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .etapa-card:hover { border-left-color: var(--rojo); }
+
+  .etapa-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rojo);
+  }
+
+  .etapa-dolor {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--blanco);
+    line-height: 1.3;
+  }
+
+  .etapa-sintomas {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .etapa-sintoma {
+    font-size: 13px;
+    color: var(--gris-texto);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .etapa-sintoma::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--rojo);
+  }
+
+  .etapa-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .etapa-solucion-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris-texto);
+    margin-bottom: 10px;
+  }
+
+  .etapa-solucion-items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .etapa-solucion-item {
+    font-size: 13px;
+    color: #aaa;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .etapa-solucion-item::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--rojo);
+    font-size: 11px;
+  }
+
+  .etapas-cierre {
+    background: var(--gris);
+    border-left: 3px solid var(--rojo);
+    padding: 28px 32px;
+  }
+
+  .etapas-cierre p {
+    font-size: 14px;
+    color: var(--gris-texto);
+    line-height: 1.8;
+  }
+
+  .etapas-cierre strong { color: var(--blanco); font-weight: 500; }
+
+  /* FRASE FINAL */
+  .frase-final {
+    padding: 120px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(200,55,26,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .frase-final h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 10vw, 140px);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    position: relative;
+  }
+
+  .frase-final h2 span { color: var(--rojo); }
+
+  /* FOOTER */
+  footer {
+    padding: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .footer-logo span { color: var(--rojo); }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--gris-texto);
+  }
+
+  /* SUCCESS */
+  .success-msg {
+    display: none;
+    background: rgba(200,55,26,0.1);
+    border: 1px solid var(--rojo);
+    padding: 24px;
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .success-msg.show { display: block; }
+
+  @media (max-width: 600px) {
+    .hero, .problema, .casos, .formulario-seccion, .frase-final { padding: 60px 24px; }
+    .nav { padding: 16px 24px; }
+    .form-grid { grid-template-columns: 1fr; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">DANNY <span>MERA</span></a>
+  <a href="#formulario" class="nav-cta">Diagnóstico gratuito</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Sistemas Comerciales</div>
+    <h1>TU NEGOCIO<br>NO NECESITA<br>MÁS <span>LEADS.</span><br>NECESITA<br>NO PERDERLOS.</h1>
+    <p class="hero-sub">
+      <strong>Encuentro dónde está fallando el sistema que te cuesta ventas.</strong><br>
+      No es tu campaña. Es lo que pasa después del lead.
+    </p>
+    <div class="hero-btns">
+      <a href="#formulario" class="btn-primary">Quiero un diagnóstico</a>
+      <a href="#etapas" class="btn-secondary">¿En qué etapa estás?</a>
+    </div>
+  </div>
+</section>
+
+<div class="numeros">
+  <div class="numero-item">
+    <div class="numero-valor">$32M</div>
+    <div class="numero-label">Ventas generadas en un mes</div>
+  </div>
+  <div class="numero-item">
+    <div class="numero-valor">3X</div>
+    <div class="numero-label">Crecimiento en 90 días</div>
+  </div>
+  <div class="numero-item">
+    <div class="numero-valor">+20</div>
+    <div class="numero-label">Negocios con sistema activo</div>
+  </div>
+  <div class="numero-item">
+    <div class="numero-valor">0</div>
+    <div class="numero-label">Leads perdidos con sistema</div>
+  </div>
+</div>
+
+<section class="problema">
+  <div class="seccion-tag">El problema real</div>
+  <h2>¿TE SUENA<br>FAMILIAR?</h2>
+  <div class="problema-grid">
+    <div class="problema-item">
+      <div class="problema-num">01</div>
+      <div class="problema-titulo">Los leads llegan pero no compran</div>
+      <div class="problema-texto">Inviertes en publicidad, la gente se interesa, pero casi nadie termina comprando. Y la culpa siempre es del marketing.</div>
+    </div>
+    <div class="problema-item">
+      <div class="problema-num">02</div>
+      <div class="problema-titulo">Los contactas tarde o nunca</div>
+      <div class="problema-texto">El lead llega caliente. A la hora está tibio. Al día siguiente ya compró en otro lado. Y tu vendedor llama preguntando si sigue interesado.</div>
+    </div>
+    <div class="problema-item">
+      <div class="problema-num">03</div>
+      <div class="problema-titulo">No sabes dónde se pierde la venta</div>
+      <div class="problema-texto">Si no puedes identificar en qué paso exacto se cae la venta, no puedes arreglarlo. Es tener una fuga sin saber dónde está el hoyo.</div>
+    </div>
+  </div>
+</section>
+
+<section class="como" id="como">
+  <div class="como-inner">
+    <div class="seccion-tag">Cómo trabajo</div>
+    <h2>EL SISTEMA<br>EN 4 PASOS</h2>
+    <div class="pasos">
+      <div class="paso">
+        <div class="paso-num">01</div>
+        <div class="paso-titulo">Diagnóstico</div>
+        <div class="paso-texto">Revisamos juntos qué pasa en tu negocio desde que llega el lead hasta que se cierra o se pierde. Identificamos las fugas exactas.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">02</div>
+        <div class="paso-titulo">Atracción</div>
+        <div class="paso-texto">Campañas en Meta y Google diseñadas para traer el cliente correcto, no solo volumen. Leads calificados que ya saben lo que quieren.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">03</div>
+        <div class="paso-titulo">Sistema</div>
+        <div class="paso-texto">Proceso de seguimiento, CRM y automatización para que ningún lead se enfríe. El sistema trabaja aunque tú no estés mirando.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">04</div>
+        <div class="paso-titulo">Conversión</div>
+        <div class="paso-texto">Trabajamos el proceso de venta con tu equipo para que sepan leer al cliente, manejar objeciones y cerrar con criterio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="casos">
+  <div class="seccion-tag">Casos reales</div>
+  <h2>RESULTADOS<br>QUE HABLAN</h2>
+  <div class="casos-grid">
+    <div class="caso-item">
+      <div class="caso-resultado">$32M</div>
+      <div class="caso-rubro">Servicios — 1 mes</div>
+      <div class="caso-descripcion">De $10M en febrero a $32M en abril. Ordenamos campañas, estructuramos el seguimiento y trabajamos cómo atendían cada consulta.</div>
+    </div>
+    <div class="caso-item">
+      <div class="caso-resultado">3X</div>
+      <div class="caso-rubro">Hojalatería — 90 días</div>
+      <div class="caso-descripcion">Empezamos sin nada. Analizamos sus conversaciones, trabajamos el proceso de atención y hoy tienen clientes todos los días.</div>
+    </div>
+    <div class="caso-item">
+      <div class="caso-resultado">+5</div>
+      <div class="caso-rubro">Ejecutivos de seguros</div>
+      <div class="caso-descripcion">Sistema de campañas y CRM para 5 ejecutivos con alto volumen de leads. Proceso estructurado para que ningún interesado se pierda.</div>
+    </div>
+  </div>
+</section>
+
+<section class="etapas" id="etapas">
+  <div class="seccion-tag">¿En qué etapa está tu negocio?</div>
+  <h2>CADA ETAPA REVELA<br>EL SIGUIENTE PROBLEMA</h2>
+  <p class="etapas-intro">Los negocios no se construyen resolviendo cien problemas imaginarios. Se construyen resolviendo el problema que tienes enfrente. Ubícate.</p>
+  <p class="etapas-pregunta">¿Cuál de estos describe tu situación hoy?</p>
+
+  <div class="etapas-grid">
+
+    <div class="etapa-card">
+      <span class="etapa-num">Etapa 1</span>
+      <p class="etapa-dolor">"No tengo clientes."</p>
+      <div class="etapa-sintomas">
+        <span class="etapa-sintoma">Las ventas están bajas o son inconsistentes</span>
+        <span class="etapa-sintoma">Dependes de referidos o del boca a boca</span>
+        <span class="etapa-sintoma">No llegan consultas todos los días</span>
+        <span class="etapa-sintoma">No tienes un sistema para generar oportunidades</span>
+      </div>
+      <div class="etapa-divider"></div>
+      <div>
+        <p class="etapa-solucion-label">Lo que implementamos</p>
+        <div class="etapa-solucion-items">
+          <span class="etapa-solucion-item">Campañas Meta / Google</span>
+          <span class="etapa-solucion-item">Landing page que convierte</span>
+          <span class="etapa-solucion-item">Seguimiento inicial estructurado</span>
+          <span class="etapa-solucion-item">Contenido y prospección activa</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="etapa-card">
+      <span class="etapa-num">Etapa 2</span>
+      <p class="etapa-dolor">"Llegan clientes pero se pierden."</p>
+      <div class="etapa-sintomas">
+        <span class="etapa-sintoma">Recibes mensajes pero pocas ventas concretas</span>
+        <span class="etapa-sintoma">Los leads se enfrían antes de cerrar</span>
+        <span class="etapa-sintoma">No sabes exactamente dónde se cae la venta</span>
+        <span class="etapa-sintoma">El seguimiento depende de la memoria de alguien</span>
+      </div>
+      <div class="etapa-divider"></div>
+      <div>
+        <p class="etapa-solucion-label">Lo que implementamos</p>
+        <div class="etapa-solucion-items">
+          <span class="etapa-solucion-item">Análisis de conversaciones reales</span>
+          <span class="etapa-solucion-item">Proceso de respuesta y seguimiento</span>
+          <span class="etapa-solucion-item">CRM operativo desde el día uno</span>
+          <span class="etapa-solucion-item">Automatización WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="etapa-card">
+      <span class="etapa-num">Etapa 3</span>
+      <p class="etapa-dolor">"El negocio crece pero hay desorden."</p>
+      <div class="etapa-sintomas">
+        <span class="etapa-sintoma">Hay muchas conversaciones y se olvidan clientes</span>
+        <span class="etapa-sintoma">No hay métricas claras de nada</span>
+        <span class="etapa-sintoma">Demasiadas tareas repetitivas que consumen tiempo</span>
+        <span class="etapa-sintoma">Todo depende del dueño para funcionar</span>
+      </div>
+      <div class="etapa-divider"></div>
+      <div>
+        <p class="etapa-solucion-label">Lo que implementamos</p>
+        <div class="etapa-solucion-items">
+          <span class="etapa-solucion-item">CRM personalizado con reportes</span>
+          <span class="etapa-solucion-item">Automatizaciones de procesos clave</span>
+          <span class="etapa-solucion-item">Análisis con IA (metodología SLCI)</span>
+          <span class="etapa-solucion-item">Procesos que funcionan sin ti</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="etapa-card">
+      <span class="etapa-num">Etapa 4</span>
+      <p class="etapa-dolor">"Tengo demasiado trabajo."</p>
+      <div class="etapa-sintomas">
+        <span class="etapa-sintoma">El negocio funciona pero tú eres el cuello de botella</span>
+        <span class="etapa-sintoma">No puedes crecer sin trabajar más horas</span>
+        <span class="etapa-sintoma">No hay equipo que pueda ejecutar sin ti</span>
+        <span class="etapa-sintoma">El crecimiento depende de tu tiempo, no del sistema</span>
+      </div>
+      <div class="etapa-divider"></div>
+      <div>
+        <p class="etapa-solucion-label">Lo que implementamos</p>
+        <div class="etapa-solucion-items">
+          <span class="etapa-solucion-item">Diseño de estructura de equipo</span>
+          <span class="etapa-solucion-item">Procesos que otros pueden ejecutar</span>
+          <span class="etapa-solucion-item">Delegación con sistema y métricas</span>
+          <span class="etapa-solucion-item">Contratación estratégica</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="etapas-cierre">
+    <p><strong>Una advertencia honesta:</strong> no puedes diseñar la etapa 4 cuando todavía estás en la etapa 1. El error más común es querer el sistema completo antes de tener el primer cliente. Trabajamos la etapa en la que estás hoy — no la que quisieras tener mañana.</p>
+  </div>
+</section>
+
+<section class="formulario-seccion" id="formulario">
+  <div class="formulario-inner">
+    <div class="seccion-tag">Diagnóstico gratuito</div>
+    <h2>REVISEMOS<br>TU SISTEMA</h2>
+    <p>Completa este formulario y me contacto contigo para una llamada de 20 minutos sin costo. Te digo exactamente dónde está la fuga en tu negocio.</p>
+
+    <form id="form-diagnostico" action="https://formspree.io/f/xvznbpev" method="POST">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp</label>
+          <input type="tel" name="whatsapp" placeholder="+56 9 XXXX XXXX" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>¿A qué se dedica tu negocio?</label>
+        <input type="text" name="negocio" placeholder="Ej: Taller mecánico, clínica dental, empresa de seguros..." required>
+      </div>
+
+      <div class="form-group">
+        <label>¿En qué etapa está tu negocio hoy?</label>
+        <select name="etapa" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="etapa1">Etapa 1 — No tengo suficientes clientes</option>
+          <option value="etapa2">Etapa 2 — Llegan pero se pierden</option>
+          <option value="etapa3">Etapa 3 — Hay crecimiento pero desorden</option>
+          <option value="etapa4">Etapa 4 — Tengo demasiado trabajo</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuántos contactos o consultas recibes al mes aproximadamente?</label>
+        <select name="consultas_mes" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="menos20">Menos de 20</option>
+          <option value="20-50">Entre 20 y 50</option>
+          <option value="50-150">Entre 50 y 150</option>
+          <option value="mas150">Más de 150</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuál es tu mayor problema hoy en ventas?</label>
+        <select name="problema" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="no-llegan">No me llegan suficientes clientes interesados</option>
+          <option value="no-convierten">Me llegan pero no convierten en ventas</option>
+          <option value="se-enfrian">Los contacto tarde y se enfrían</option>
+          <option value="no-cierran">Mis vendedores no cierran bien</option>
+          <option value="no-se-donde">No sé dónde se pierde la venta</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuánto inviertes o estarías dispuesto a invertir mensualmente en mejorar tu sistema de ventas?</label>
+        <select name="inversion" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="menos100">Menos de $100.000</option>
+          <option value="100-300">Entre $100.000 y $300.000</option>
+          <option value="300-600">Entre $300.000 y $600.000</option>
+          <option value="mas600">Más de $600.000</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Algo más que quieras contarme? (opcional)</label>
+        <textarea name="mensaje" placeholder="Cuéntame brevemente tu situación actual..."></textarea>
+      </div>
+
+      <input type="hidden" name="_replyto" value="agenciaaimpacto@gmail.com">
+      <input type="hidden" name="_subject" value="Nuevo diagnóstico solicitado — dannymera.com">
+
+      <button type="submit" class="form-submit">Quiero mi diagnóstico gratuito →</button>
+      <p class="form-nota">Solo trabajo con negocios que estén listos para implementar. Si no es tu caso, igual nos hablamos.</p>
+    </form>
+
+    <div class="success-msg" id="success">
+      <strong>Listo. Recibí tu información.</strong><br>
+      Te contacto por WhatsApp en las próximas 24 horas para coordinar la llamada.
+    </div>
+  </div>
+</section>
+
+<section class="frase-final">
+  <h2>EL SISTEMA<br><span>SIEMPRE</span><br>GANA.</h2>
+</section>
+
+<footer>
+  <div class="footer-logo">DANNY <span>MERA</span></div>
+  <div class="footer-text">© 2026 Danny Mera · Sistemas Comerciales</div>
+</footer>
+
+<script>
+  const form = document.getElementById('form-diagnostico');
+  const success = document.getElementById('success');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.classList.add('show');
+        window.scrollTo({ top: success.offsetTop - 100, behavior: 'smooth' });
+      } else {
+        btn.textContent = 'Error al enviar. Intenta de nuevo.';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Error al enviar. Intenta de nuevo.';
+      btn.disabled = false;
+    }
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
