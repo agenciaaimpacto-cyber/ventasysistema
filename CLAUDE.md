@@ -22,14 +22,13 @@ Cross-links entre los dos sitios son URLs absolutas (no relativas), porque viven
 
 Es un negocio distinto al de seguros (`~/DannyMeraSeguros`) y a Radar Comercial (`~/RadarComercial`), aunque viven bajo el mismo paraguas de marca personal de Danny. Ver notas de portafolio de negocios en memoria (`user_business_portfolio.md` del asistente).
 
-**Dato clave descubierto el 29 de septiembre de 2026 en el dashboard de Netlify:** el sitio de Netlify que ya existe hoy (nombre de proyecto interno "dannymera.com") es en realidad el que después de hoy pasará a ser el de **sistemas** — porque hoy sirve el contenido viejo de "Sistemas Comerciales" y su subdominio nativo es `dannymera-sistemas.netlify.app`. El dominio propio `dannymera.com` (custom domain, hoy apuntando a ese proyecto viejo) hay que **quitarlo de ahí** y ponerlo en un proyecto de Netlify nuevo, que será el de **ventas**.
+**Estado: completamente operativo desde el 29 de septiembre de 2026.** Repo en GitHub: [agenciaaimpacto-cyber/ventasysistema](https://github.com/agenciaaimpacto-cyber/ventasysistema) (un solo repo para los dos sitios). Configuración final en Netlify:
+- Proyecto **`dannymera-ventas`** (renombrado por Netlify a "dannymera.com" al agregar el dominio) → conectado a este repo, base/publish directory `ventas`, dominio primary `dannymera.com` + alias `www.dannymera.com` (redirige al primary), HTTPS forzado, certificado Let's Encrypt activo.
+- Proyecto **`dannymera-sistemas`** (el que ya existía, antes deployado manualmente vía Netlify Drop sin repo) → reconectado a este mismo repo, base/publish directory `sistemas`, sin dominio propio, accesible solo en `dannymera-sistemas.netlify.app`.
 
-**Pendiente para dejarlo operativo (plan confirmado con Danny el 29 de septiembre):**
-1. Crear repositorio en GitHub bajo `agenciaaimpacto-cyber` (no existía ninguno para este sitio al momento de la migración — se verificó por API). Pushear este repo consolidado (`ventas/` + `sistemas/`).
-2. Confirmar acceso de escritura de la GitHub App de Claude sobre el repo nuevo (ver guía técnica en `~/DannyMeraSeguros/CLAUDE.md`, sección "Cómo se configuró Radar Comercial", punto 4) — si la instalación fue con repos específicos (no "All repositories"), hay que agregar este repo nuevo a mano en `https://github.com/settings/installations`.
-3. En el proyecto de Netlify **existente** ("dannymera.com" en el dashboard, el que hoy sirve el contenido viejo): quitar el dominio custom `dannymera.com` (Domain management → Options → Remove domain), y reconectar su repo/build settings a este repo nuevo con base directory `sistemas`. Se queda accesible solo en `dannymera-sistemas.netlify.app` — no renombrar el proyecto o ese subdominio puede cambiar.
-4. Crear un **proyecto nuevo** en Netlify, conectado a este mismo repo, con base directory `ventas`. Una vez quitado de arriba, agregar `dannymera.com` como dominio custom (primary) a este proyecto nuevo, y `www.dannymera.com` como alias que redirige al primary (igual que estaba configurado antes).
-5. Recordar el aviso de "operational credits" de la cuenta Netlify (ver `~/DannyMeraSeguros/CLAUDE.md`) — puede afectar si los deploys nuevos no se disparan aunque el push a GitHub sí llegue.
+Ambos se redeployan automáticamente con cada `git push` a `main` (Netlify solo reconstruye el sitio cuya carpeta cambió). Verificado en vivo el 29 de septiembre: `www.dannymera.com` sirve la página de ventas, y el link del footer "Conoce Sistemas Comerciales →" lleva correctamente a `dannymera-sistemas.netlify.app`.
+
+**Nota de configuración importante para el futuro:** en el formulario de "Link repository" / "Add new project" de Netlify, el campo "Publish directory" se muestra como un prefijo fijo (el valor de "Base directory" + `/`) seguido de un campo editable para una subcarpeta adicional — si el sitio está directamente en la raíz de esa carpeta (como acá, sin subcarpeta extra), hay que dejar esa parte vacía, no reescribir el nombre de la carpeta ahí (eso duplicaría la ruta, ej. `sistemas/sistemas`).
 
 ## Nota de idioma
 Igual que los otros proyectos: español neutro/chileno estándar (tú), sin acentos/voseo argentino.
